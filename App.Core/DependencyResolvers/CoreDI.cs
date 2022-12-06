@@ -8,6 +8,6 @@ public class CoreDI
     public static void ConfigureServices(IServiceCollection services)
     {
         // Inject Service and Manager
-
+        services.AddMediatR(typeof(IMediator));
     }
 }

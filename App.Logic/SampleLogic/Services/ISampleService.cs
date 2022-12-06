@@ -1,3 +1,5 @@
+using App.Core.Results.GenericResults;
+using App.Domain.Entities;
 using App.Infrastructure.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +10,7 @@ public interface ISampleService
     Task<IActionResult> Add(SampleAddDto sampleAddDto);
     Task<IActionResult> GetByGuid(Guid guid);
     Task<IActionResult> GetList();
+    Task<DataResult<List<SampleEntity>>> GetListDataResult();
     Task<IActionResult> Update(SampleUpdateDto sampleUpdateDto);
     Task<IActionResult> DeleteByGuid(Guid guid);
 }

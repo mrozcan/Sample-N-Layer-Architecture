@@ -1,0 +1,25 @@
+syntax = "proto3";
+package sample;
+
+option csharp_namespace = "Api.Grpc";
+
+// Imports
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+// Entity
+message SampleData {
+  string Id = 1;
+  google.protobuf.Timestamp CreateDate = 2;
+  google.protobuf.Timestamp UpdateDate = 3;
+  string SampleStringData = 4;
+  google.protobuf.Int32Value SampleIntData = 5;
+}
+
+service Sample {
+  // return all data
+  rpc GetAll(GetAllRequest) returns (GetAllReply);
+}
+
+message GetAllRequest {}
+message GetAllReply { repeated SampleData sample = 1; }

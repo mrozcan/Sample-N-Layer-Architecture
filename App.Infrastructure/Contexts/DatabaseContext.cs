@@ -8,7 +8,7 @@ public class DatabaseContext : DbContext
 {
     private protected string SqliteDbPath { get; set; }
 
-    public DatabaseContext() => SqliteDbPath = System.IO.Path.Join(Directory.GetParent(Directory.GetCurrentDirectory()).FullName , "Sample.db");
+    public DatabaseContext() => SqliteDbPath = System.IO.Path.Join(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "Sample.db");
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -17,6 +17,7 @@ public class DatabaseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
     }
 
     [AllowNull]

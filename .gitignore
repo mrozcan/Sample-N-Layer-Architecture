@@ -453,3 +453,7 @@ $RECYCLE.BIN/
 
 *bin/
 *obj/
+
+# Ignore database and migration files
+*.db
+App.Infrastructure/Migrations

@@ -1,4 +1,5 @@
 using App.Core.Results.ActionResults;
+using App.Core.Results.GenericResults;
 using App.Domain.Entities;
 using App.Infrastructure.DataTransferObjects;
 using App.Infrastructure.ORMs.EntityFramework.Abstract;
@@ -57,6 +58,12 @@ public class SampleManager : ISampleService
         return new DataActionResult<List<SampleEntity>>(200, data: listOfSample);
     }
 
+    // Method for GRPC Api
+    public async Task<DataResult<List<SampleEntity>>> GetListDataResult()
+    {
+        var listOfSample = await _sampleRepository.Queryable().ToListAsync();
+        return new DataResult<List<SampleEntity>>(200, listOfSample);
+    }
     public async Task<IActionResult> Update(SampleUpdateDto sampleUpdateDto)
     {
         var entity = await _sampleRepository.Queryable().SingleOrDefaultAsync(x => x.Id == sampleUpdateDto.Id);
