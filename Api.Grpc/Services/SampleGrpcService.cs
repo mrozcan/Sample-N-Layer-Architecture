@@ -1,3 +1,5 @@
+using Api.Grpc.GrpcDtos;
+using App.Domain.Entities;
 using App.Logic.SampleLogic.Services;
 using Grpc.Core;
 using MapsterMapper;
@@ -15,13 +17,18 @@ public class SampleGrpcService : Sample.SampleBase
         _logger = logger;
         _mapper = mapper;
         _sampleService = sampleService;
+
+        // Create new configuration for converting data
+        _mapper.Config.NewConfig<SampleEntity, SampleGrpcDto>()
+            .ConstructUsing(src => new SampleGrpcDto(src.Id, src.CreateDate, src.UpdateDate, src.SampleStringData, src.SampleIntData));
     }
 
     public override async Task<GetAllReply> GetAll(GetAllRequest request, ServerCallContext context)
     {
         var listOfSampleData = await _sampleService.GetListDataResult();
         GetAllReply getAllReply = new GetAllReply();
-        getAllReply.Sample.AddRange(_mapper.Map<List<SampleData>>(listOfSampleData.Data));
+        var mappedGrpcData = _mapper.Map<List<SampleGrpcDto>>(listOfSampleData.Data);
+        getAllReply.Sample.AddRange(_mapper.Map<List<SampleData>>(mappedGrpcData));
         return getAllReply;
     }
 }

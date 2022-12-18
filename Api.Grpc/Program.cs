@@ -1,7 +1,9 @@
+using System.Net;
 using Api.Grpc.DependencyResolvers;
 using Api.Grpc.Services;
 using App.Infrastructure.DependencyResolvers;
 using App.Logic.DependencyResolvers;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace Api.Grpc;
 
@@ -18,13 +20,29 @@ public class Program
         builder.Host.ConfigureServices(LogicDI.ConfigureServices);
         builder.Host.ConfigureServices(ApiGrpcDI.ConfigureServices);
         builder.Host.ConfigureServices(InfrastructureDI.ConfigureServices);
-        
+
+        // Use Kesterl as a server.
+        builder.WebHost.UseKestrel();
+
+        // configure Kestrel for Http 1, Http2 and Http 3
+        builder.WebHost.ConfigureKestrel((contex, options) =>
+            {
+                options.Listen(IPAddress.Any, 5111, listenOptions =>
+                {
+                    listenOptions.Protocols = HttpProtocols.Http1AndHttp2AndHttp3;
+                    listenOptions.UseHttps(listenOptions =>
+                    {
+                        listenOptions.HandshakeTimeout = TimeSpan.FromSeconds(5);
+                    });
+                });
+            });
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
         app.MapGrpcService<SampleGrpcService>();
 
-        app.MapGet("/", () => {} );
+        app.MapGet("/", () => { });
 
         app.Run();
     }
