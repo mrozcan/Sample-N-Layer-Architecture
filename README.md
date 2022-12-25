@@ -2,7 +2,7 @@
 
 ## **Sample N-Layer Architecture Project**
 ----------
-This is a minimal sample project covering N-Layer architecture using .Net and some of the most used technologies. It consists of 6 different layers.
+This is a minimal sample project covering N-Layer architecture using .Net and some of the most used technologies. It consists of 7 different layers.
 
 ## **Layers:**
 ----------
