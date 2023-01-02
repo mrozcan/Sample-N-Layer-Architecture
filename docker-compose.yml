@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  api:
+    image: api
+    build:
+      context: .
+      dockerfile: Api/Dockerfile
+    ports:
+      - 5298:80
+      - 7230:443
+
+  apigrpc:
+    image: apigrpc
+    build:
+      context: .
+      dockerfile: Api.Grpc/Dockerfile
+    ports:
+      - 5111:5080
+      - 5111:5443

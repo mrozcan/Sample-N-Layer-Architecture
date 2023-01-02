@@ -17,9 +17,9 @@ public class Program
         builder.Services.AddGrpc();
 
         // Dependency Injections
-        builder.Host.ConfigureServices(LogicDI.ConfigureServices);
-        builder.Host.ConfigureServices(ApiGrpcDI.ConfigureServices);
-        builder.Host.ConfigureServices(InfrastructureDI.ConfigureServices);
+        LogicDI.ConfigureServices(builder.Services);
+        ApiGrpcDI.ConfigureServices(builder.Services);
+        InfrastructureDI.ConfigureServices(builder.Services);
 
         // Use Kesterl as a server.
         builder.WebHost.UseKestrel();

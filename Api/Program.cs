@@ -17,9 +17,10 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Host.ConfigureServices(CoreDI.ConfigureServices);
-        builder.Host.ConfigureServices(LogicDI.ConfigureServices);
-        builder.Host.ConfigureServices(InfrastructureDI.ConfigureServices);
+        // Dependency Injections
+        CoreDI.ConfigureServices(builder.Services);
+        LogicDI.ConfigureServices(builder.Services);
+        InfrastructureDI.ConfigureServices(builder.Services);
 
         var app = builder.Build();
 
