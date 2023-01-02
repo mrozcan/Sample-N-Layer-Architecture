@@ -35,6 +35,8 @@ You can run both api in terminal. Just use following code
 
 **Run Api.Grpc:** `dotnet run '.\.Net N-tier.sln' --project .\Api.Grpc\Api.Grpc.csproj`
 
+**Run Both Api's In Docker** `docker compose -p api -f docker-compose.yml up -d`
+
 Or you can simply open Visual Studio and run the Api`s 😄
 
 You can find Sample Grpc Client in [here.](https://github.com/mrozcan/Sample-Grpc-Client)

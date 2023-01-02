@@ -16,5 +16,4 @@ services:
       context: .
       dockerfile: Api.Grpc/Dockerfile
     ports:
-      - 5111:5080
       - 5111:5443
