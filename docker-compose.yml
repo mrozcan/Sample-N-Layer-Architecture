@@ -8,7 +8,6 @@ services:
       dockerfile: Api/Dockerfile
     ports:
       - 5298:80
-      - 7230:443
 
   apigrpc:
     image: apigrpc
@@ -16,4 +15,4 @@ services:
       context: .
       dockerfile: Api.Grpc/Dockerfile
     ports:
-      - 5111:5443
+      - 5111:5080

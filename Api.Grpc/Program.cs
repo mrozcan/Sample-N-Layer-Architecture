@@ -30,10 +30,10 @@ public class Program
                 options.Listen(IPAddress.Any, 5111, listenOptions =>
                 {
                     listenOptions.Protocols = HttpProtocols.Http1AndHttp2AndHttp3;
-                    listenOptions.UseHttps(listenOptions =>
+                    /*listenOptions.UseHttps(listenOptions =>
                     {
                         listenOptions.HandshakeTimeout = TimeSpan.FromSeconds(5);
-                    });
+                    });*/
                 });
             });
 
