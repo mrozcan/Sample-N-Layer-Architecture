@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace App.Core.Entity.Abstract;
 
-public interface IEntity
+public interface IEntity : IBaseEntity
 {
     [Key]
     Guid Id { get; init; }

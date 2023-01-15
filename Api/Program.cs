@@ -1,3 +1,4 @@
+using App.Core.Configurations.Concrete;
 using App.Core.DependencyResolvers;
 using App.Infrastructure.DependencyResolvers;
 using App.Logic.DependencyResolvers;
@@ -22,6 +23,10 @@ public class Program
         LogicDI.ConfigureServices(builder.Services);
         InfrastructureDI.ConfigureServices(builder.Services);
 
+        // Add appsettings.json configurations
+        builder.Services.Configure<MongoConfig>
+            (builder.Configuration.GetSection("MongoConfig"));
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -36,7 +41,7 @@ public class Program
             app.UseHsts();
         }
 
-        //app.UseHttpsRedirection();
+        app.UseHttpsRedirection();
 
         app.UseAuthorization();
 

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace App.Core.Infrastructure.EntityFramework;
 
-public abstract class Repository<TEntity, TDBContext> : IGenericRepository<TEntity>, IDisposable, IAsyncDisposable
+public abstract class Repository<TEntity, TDBContext> : IEFRepository<TEntity>, IDisposable, IAsyncDisposable
 where TDBContext : DbContext, new()
 where TEntity : class, IEntity, new()
 {

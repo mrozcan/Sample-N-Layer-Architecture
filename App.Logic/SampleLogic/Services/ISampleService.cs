@@ -1,4 +1,5 @@
 using App.Core.Results.GenericResults;
+using App.Domain.Documents;
 using App.Domain.Entities;
 using App.Infrastructure.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
@@ -13,4 +14,6 @@ public interface ISampleService
     Task<DataResult<List<SampleEntity>>> GetListDataResult();
     Task<IActionResult> Update(SampleUpdateDto sampleUpdateDto);
     Task<IActionResult> DeleteByGuid(Guid guid);
+    Task<IActionResult> AddDocument(SampleDocument sampleDocument);
+    IActionResult GetAllDocument();
 }

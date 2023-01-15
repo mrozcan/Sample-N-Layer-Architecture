@@ -1,8 +1,10 @@
 using App.Core.Results.ActionResults;
 using App.Core.Results.GenericResults;
+using App.Domain.Documents;
 using App.Domain.Entities;
 using App.Infrastructure.DataTransferObjects;
 using App.Infrastructure.ORMs.EntityFramework.Abstract;
+using App.Infrastructure.ORMs.Mongo.Abstract;
 using App.Logic.SampleLogic.Services;
 using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +17,13 @@ public class SampleManager : ISampleService
 {
     private readonly IMapper _mapper;
     private readonly ISampleRepository _sampleRepository;
+    private readonly ISampleDocumentRepository _sampleDocumentRepository;
 
-    public SampleManager(IMapper mapper, ISampleRepository sampleRepository)
+    public SampleManager(IMapper mapper, ISampleRepository sampleRepository, ISampleDocumentRepository sampleDocumentRepository)
     {
         _mapper = mapper;
         _sampleRepository = sampleRepository;
+        _sampleDocumentRepository = sampleDocumentRepository;
     }
 
     public async Task<IActionResult> Add(SampleAddDto sampleAddDto)
@@ -29,6 +33,7 @@ public class SampleManager : ISampleService
 
         return new DataActionResult<SampleEntity>(200, data: mappedEntity);
     }
+
 
     public async Task<IActionResult> DeleteByGuid(Guid guid)
     {
@@ -64,6 +69,7 @@ public class SampleManager : ISampleService
         var listOfSample = await _sampleRepository.Queryable().ToListAsync();
         return new DataResult<List<SampleEntity>>(200, listOfSample);
     }
+
     public async Task<IActionResult> Update(SampleUpdateDto sampleUpdateDto)
     {
         var entity = await _sampleRepository.Queryable().SingleOrDefaultAsync(x => x.Id == sampleUpdateDto.Id);
@@ -78,4 +84,16 @@ public class SampleManager : ISampleService
 
         return new SuccesActionResult(200, 100);
     }
+
+    public async Task<IActionResult> AddDocument(SampleDocument sampleDocument)
+    {
+        await _sampleDocumentRepository.AddAsync(sampleDocument);
+        return new SuccesActionResult(statusCode: 200, messageCode: 200);
+    }
+
+    public IActionResult GetAllDocument()
+    {
+        return new DataActionResult<List<SampleDocument>>(statusCode: 200, messageCode: 200, data: _sampleDocumentRepository.GetAll().ToList());
+    }
+
 }

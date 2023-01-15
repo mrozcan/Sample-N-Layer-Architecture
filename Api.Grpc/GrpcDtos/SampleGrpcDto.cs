@@ -8,7 +8,7 @@ public class SampleGrpcDto
     public string? SampleStringData { get; set; }
     public int SampleIntData { get; set; }
 
-    public SampleGrpcDto(Guid id, DateTime createDate, DateTime? updateDate, string? sampleStringData, int sampleIntData )
+    public SampleGrpcDto(Guid id, DateTime createDate, DateTime? updateDate, string? sampleStringData, int sampleIntData)
     {
         Id = id;
         CreateDate = createDate.ToString();

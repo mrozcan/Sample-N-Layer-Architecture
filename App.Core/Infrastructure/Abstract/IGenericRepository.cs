@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace App.Core.Infrastructure.Abstract;
 
-public interface IGenericRepository<TEntity> where TEntity : class, IEntity, new()
+public interface IGenericRepository<TEntity> where TEntity : class, IBaseEntity, new()
 {
     void Add(TEntity entity);
     void Update(TEntity entity);
@@ -11,7 +11,5 @@ public interface IGenericRepository<TEntity> where TEntity : class, IEntity, new
     Task AddAsync(TEntity entity);
     Task UpdateAsync(TEntity entity);
     Task DeleteAsync(TEntity entity);
-    IList<TEntity> GetAll(Expression<Func<TEntity, bool>> filter);
-    IQueryable<TEntity> Queryable();
-
+    IList<TEntity> GetAll(Expression<Func<TEntity, bool>>? filter = null);
 }

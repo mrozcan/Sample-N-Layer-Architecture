@@ -25,6 +25,7 @@ This is a minimal sample project covering N-Layer architecture using .Net and so
 - MediatR
 - Mapster
 - Grpc.AspNetCore
+- MongoDB
 
 ## **How To Run?**
 ----------

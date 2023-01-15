@@ -1,3 +1,4 @@
+using App.Domain.Documents;
 using App.Infrastructure.DataTransferObjects;
 using App.Logic.SampleLogic.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -30,4 +31,10 @@ public class SampleApiClass : ControllerBase
 
     [HttpGet("Get-List")]
     public async Task<IActionResult> GetList() => await _sampleService.GetList();
+
+    [HttpPost("Add-Sample-Document")]
+    public async Task<IActionResult> AddDocument(SampleDocument sampleDocument) => await _sampleService.AddDocument(sampleDocument);
+
+    [HttpGet("Document-Get-List")]
+    public IActionResult GetAllDocument() => _sampleService.GetAllDocument();
 }
