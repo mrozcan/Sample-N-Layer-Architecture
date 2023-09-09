@@ -6,6 +6,6 @@ using App.Infrastructure.ORMs.Mongo.Abstract;
 namespace App.Infrastructure.ORMs.Mongo.Concrete;
 public class SampleDocumentRepositoryDal : MongoRepository<SampleDocument>, ISampleDocumentRepository
 {
-    public SampleDocumentRepositoryDal(IMongoConfig configuration) : base(configuration) { }
+    public SampleDocumentRepositoryDal(IMongoConfig configuration) : base(configuration, Collection.CollectionName.SampleCollection) { }
 }
 

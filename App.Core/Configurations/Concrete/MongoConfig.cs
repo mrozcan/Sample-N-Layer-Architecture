@@ -4,8 +4,7 @@ namespace App.Core.Configurations.Concrete;
 
 public class MongoConfig : IMongoConfig
 {
-    public string ConnectionString { get; set; }
-    public string DatabaseName { get; set; }
-    public string CollectionName { get; set; }
+    public required string ConnectionString { get; set; }
+    public required string DatabaseName { get; set; }
 }
 

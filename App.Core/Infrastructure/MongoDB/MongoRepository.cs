@@ -13,11 +13,18 @@ where TDocument : class, IMongoDocument, new()
 
     private IMongoCollection<TDocument> _mongoCollection;
 
-    public MongoRepository(IMongoConfig configuration)
+    public MongoRepository(IMongoConfig configuration, string collectionName)
     {
         _mongoCollection = new MongoClient(configuration.ConnectionString)
         .GetDatabase(configuration.DatabaseName)
-        .GetCollection<TDocument>(configuration.CollectionName);
+        .GetCollection<TDocument>(collectionName);
+    }
+
+    public MongoRepository(string connectionString, string databaseName, string collectionName)
+    {
+        _mongoCollection = new MongoClient(connectionString)
+        .GetDatabase(databaseName)
+        .GetCollection<TDocument>(collectionName);
     }
 
     public void Add(TDocument document)

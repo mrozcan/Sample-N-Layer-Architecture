@@ -33,7 +33,10 @@ public class Program
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(conf => {
+                conf.SwaggerEndpoint("/swagger/v1/swagger.json","Sample Api v1");
+                conf.RoutePrefix = string.Empty;
+            });
             app.UseDeveloperExceptionPage();
         }
         else
