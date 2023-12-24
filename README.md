@@ -19,7 +19,7 @@ This is a minimal sample project covering N-Layer architecture using .Net and so
 ----------
 
 - C#
-- .Net 7.0
+- .Net 8.0
 - EntityFrameworkCore
 - SQLite
 - MediatR
