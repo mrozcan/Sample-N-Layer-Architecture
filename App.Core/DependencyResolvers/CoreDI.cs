@@ -10,8 +10,11 @@ public class CoreDI
 {
     public static void ConfigureServices(IServiceCollection services)
     {
+
         // Inject Service and Manager
-        services.AddMediatR(typeof(IMediator));
+        // Mediator Configuraiton
+        //var mediatorConf = new MediatRServiceConfiguration();
+        //services.AddMediatR(mediatorConf);
 
         // Add configuration after use mongo
         services.AddSingleton<IMongoConfig>

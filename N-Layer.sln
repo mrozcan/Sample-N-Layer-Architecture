@@ -1,21 +1,21 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{F697B32F-DA94-43C3-8296-2CDF54FD1B1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{F697B32F-DA94-43C3-8296-2CDF54FD1B1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Core", "App.Core\App.Core.csproj", "{711332EF-68D3-4C9F-91FA-7B76DAEEA149}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Core", "App.Core\App.Core.csproj", "{711332EF-68D3-4C9F-91FA-7B76DAEEA149}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Logic", "App.Logic\App.Logic.csproj", "{8317BE51-5B01-4868-AFAB-F1065A646F50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Logic", "App.Logic\App.Logic.csproj", "{8317BE51-5B01-4868-AFAB-F1065A646F50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure", "App.Infrastructure\App.Infrastructure.csproj", "{726522A2-371A-458A-B7BE-896D0FA64B1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Infrastructure", "App.Infrastructure\App.Infrastructure.csproj", "{726522A2-371A-458A-B7BE-896D0FA64B1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A0A5B24E-8EA3-4726-8BEE-47E47785D35E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A0A5B24E-8EA3-4726-8BEE-47E47785D35E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Domain", "App.Domain\App.Domain.csproj", "{C8390C8D-883B-4D0C-AFA7-9C06FB1B7F00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Domain", "App.Domain\App.Domain.csproj", "{C8390C8D-883B-4D0C-AFA7-9C06FB1B7F00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Grpc", "Api.Grpc\Api.Grpc.csproj", "{232C03D7-0584-4C4F-87B2-957E4E9384B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Grpc", "Api.Grpc\Api.Grpc.csproj", "{232C03D7-0584-4C4F-87B2-957E4E9384B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
